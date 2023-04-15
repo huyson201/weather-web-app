@@ -107,3 +107,17 @@ interface WeatherContext {
 }
 
 type ForecastType = "week" | "today"
+type ThemeMode = "dark" | "light"
+interface ThemeModeContext {
+    mode: ThemeMode,
+    setMode: (theme: ThemeMode) => void
+}
+
+interface City {
+    country: string
+    lat: number
+    lon: number
+    name: string
+    state: string
+}
+

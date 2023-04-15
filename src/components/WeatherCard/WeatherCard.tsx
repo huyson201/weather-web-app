@@ -13,10 +13,10 @@ export default function WeatherCard({ data, type = "week" }: Props) {
     const tempUnit = useTempUnit().temp
 
     return (
-        <div className='p-3 flex w-[100px] bg-white rounded-md flex-col items-center'>
+        <div className='p-3 flex w-[100px] dark:bg-[#1D1C1F] dark:text-white-2 bg-white rounded-md gap-2 justify-center flex-col items-center'>
             <div className=' text-sm font-semibold'>{type === "week" ? getDayOfWeek(data.datetime) : getTimes(data.datetime)}</div>
-            <img className='w-full' src='https://i.ibb.co/PZQXH8V/27.png' alt='weather' />
-            <div className='text-sm w-full mt-4 flex justify-center text-center'>
+            <img className='w-full' src={`/images/${data.icon}.png`} alt='weather' />
+            <div className='text-sm w-full flex justify-center mt-auto text-center'>
                 <span className='font-semibold text-base'>{tempUnit === "Celsius" ? data.temp : convertCelsiusToFahrenheit(data.temp)}</span>
                 <span className='text-sm'>{tempUnit === "Celsius" ? "°C" : "°F"}</span>
             </div>

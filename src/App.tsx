@@ -4,19 +4,22 @@ import LeftSide from './components/LeftSide'
 import weatherApis from './services/weatherApi'
 import { useCurrentLocation } from './contexts/CurrentLocationContext'
 import { useWeather } from './contexts/WeatherContext'
+import { useTheme } from './contexts/ThemeModeContext'
 
 function App() {
   const currentLocation = useCurrentLocation()
   const weather = useWeather()
+  const themeMode = useTheme()
 
   useEffect(() => {
-    weatherApis.getWeather("ho chi minh, viet nam")
+    if (!currentLocation?.location) return
+    weatherApis.getWeather(currentLocation.location)
       .then(res => weather?.saveWeather(res.data))
       .catch(err => console.log(err))
 
-  }, [])
+  }, [currentLocation?.location])
   return (
-    <div className="App">
+    <div className={`App ${themeMode.mode}`}>
       <div className='
         min-h-screen w-full 
         flex

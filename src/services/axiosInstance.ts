@@ -8,7 +8,8 @@ const axiosInstance = axios.create({
     },
     params: {
         key: import.meta.env.VITE_API_KEY,
-        unitGroup: "metric"
+        unitGroup: "metric",
+        iconSet: "icons2"
     }
 })
 

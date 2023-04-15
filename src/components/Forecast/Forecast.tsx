@@ -12,7 +12,7 @@ function Forecast({ type }: Props) {
 
     const genForecast = () => {
         if (type === "week") {
-            return weather?.weatherData?.days.slice(0, 6).map((data, index) => {
+            return weather?.weatherData?.days.slice(0, 7).map((data, index) => {
                 return <WeatherCard data={data} key={data.datetime} type={type} />
             })
         }

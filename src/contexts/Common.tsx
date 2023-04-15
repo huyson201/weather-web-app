@@ -2,6 +2,7 @@ import React from "react";
 import CurrentLocationProvider from "./CurrentLocationContext";
 import WeatherProvider from "./WeatherContext";
 import TempUnitProvider from "./TemperatureUnitContext";
+import ThemeModeProvider from "./ThemeModeContext";
 
 
 interface Props {
@@ -10,11 +11,13 @@ interface Props {
 export default function CommonContextProvider({ children }: Props) {
     return (
         <CurrentLocationProvider>
-            <TempUnitProvider>
-                <WeatherProvider >
-                    {children}
-                </WeatherProvider>
-            </TempUnitProvider>
+            <WeatherProvider >
+                <TempUnitProvider>
+                    <ThemeModeProvider>
+                        {children}
+                    </ThemeModeProvider>
+                </TempUnitProvider>
+            </WeatherProvider>
         </CurrentLocationProvider>
     )
 } 

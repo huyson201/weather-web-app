@@ -11,8 +11,23 @@ body {
 
 }
 
-.cloud{
-  /* filter: opacity(0.05); */
+.cloud-1{
+  animation: flyingCloud 12s linear infinite;
+
+}
+
+.cloud-2{
+  animation: flyingCloud 20s linear infinite;
+}
+.cloud-3{
+  animation: flyingCloud 15s linear infinite;
+}
+.cloud-4{
+  animation: flyingCloud 25s linear infinite;
+}
+
+.cloud-5{
+  animation: flyingCloud 10s linear infinite;
 }
 
 /* .main-content{
@@ -26,5 +41,15 @@ body {
 @keyframes spin {
   to{
     transform: rotate(360deg);
+  }
+}
+
+
+@keyframes flyingCloud {
+  0%{
+    left: -100%;
+  }
+  100%{
+    left: calc(100%);
   }
 }
