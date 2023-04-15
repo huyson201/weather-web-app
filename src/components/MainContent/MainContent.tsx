@@ -17,11 +17,11 @@ export default function MainContent() {
     }
     return (
         <div className='main-content w-full md:w-[calc(100%_-_300px)]  bg-[#f6f6f8] dark:bg-[#131214] '>
-            <div className='lg:px-6 md:px-6 px-10'>
-                <div className='flex justify-between py-6'>
+            <div className='lg:px-6 md:px-6 px-4'>
+                <div className='flex justify-between items-center flex-wrap gap-y-4 py-6'>
                     <div className='space-x-4 font-semibold'>
-                        <button className={forecastType === "today" ? `text-primary` : `text-[#495057] dark:text-[#7B7980]`} onClick={() => setForecastType("today")}>Today</button>
-                        <button className={forecastType === "week" ? `text-primary` : `text-[#495057] dark:text-[#7B7980]`} onClick={() => setForecastType("week")}>Week</button>
+                        <button className={`hover:text-primary dark:hover:text-primary duration-200 transition-colors ${forecastType === "today" ? `text-primary` : `text-[#495057] dark:text-[#7B7980]`}`} onClick={() => setForecastType("today")}>Today</button>
+                        <button className={`hover:text-primary dark:hover:text-primary duration-200 transition-colors ${forecastType === "week" ? `text-primary` : `text-[#495057] dark:text-[#7B7980]`}`} onClick={() => setForecastType("week")}>Week</button>
                     </div>
 
                     <div className='flex  gap-2'>
@@ -38,8 +38,8 @@ export default function MainContent() {
                             <span className='w-2/4 hidden dark:flex text-black   z-[1]  items-center justify-center text-base'><IoMoon /></span>
                             <span className='inline-block absolute top-0 left-0 w-[30px] h-[30px] mt-[3px] ml-[3px] dark:left-2/4 rounded-full dark:bg-white bg-black transition-all duration-300'></span>
                         </button>
-                        <button className={`w-9 h-9 flex items-center justify-center  rounded-full font-medium ${tempUnit.temp === "Celsius" ? "bg-black text-white dark:bg-white-2 dark:text-black" : "dark:bg-[rgba(255,255,255,0.08)]  dark:text-white-2 bg-white text-black"}`} onClick={() => tempUnit.setTemp("Celsius")}>&deg;C</button>
-                        <button className={`w-9 h-9 flex items-center justify-center  rounded-full font-medium ${tempUnit.temp === "Fahrenheit" ? "bg-black text-white dark:bg-white-2 dark:text-black" : "dark:bg-[rgba(255,255,255,0.08)] dark:text-white-2  bg-white text-black"}`} onClick={() => tempUnit.setTemp("Fahrenheit")}>&deg;F</button>
+                        <button className={`w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity duration-200 rounded-full font-medium ${tempUnit.temp === "Celsius" ? "bg-black text-white dark:bg-white-2 dark:text-black" : "dark:bg-[rgba(255,255,255,0.08)]  dark:text-white-2 bg-black/10 text-black/80"}`} onClick={() => tempUnit.setTemp("Celsius")}>&deg;C</button>
+                        <button className={`w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity duration-200 rounded-full font-medium ${tempUnit.temp === "Fahrenheit" ? "bg-black text-white dark:bg-white-2 dark:text-black" : "dark:bg-[rgba(255,255,255,0.08)] dark:text-white-2  bg-black/10 text-black/80"}`} onClick={() => tempUnit.setTemp("Fahrenheit")}>&deg;F</button>
                     </div>
                 </div>
 

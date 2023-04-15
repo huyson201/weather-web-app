@@ -108,18 +108,20 @@ export const convert24TimesTo12Times = (times?: string) => {
 }
 
 
-export const getIcon = (condition: string) => {
-    if (condition === "partly-cloudy-day") {
-        return "https://i.ibb.co/PZQXH8V/27.png";
-    } else if (condition === "partly-cloudy-night") {
-        return "https://i.ibb.co/Kzkk59k/15.png";
-    } else if (condition === "rain") {
-        return "https://i.ibb.co/kBd2NTS/39.png";
-    } else if (condition === "clear-day") {
-        return "https://i.ibb.co/rb4rrJL/26.png";
-    } else if (condition === "clear-night") {
-        return "https://i.ibb.co/1nxNGHL/10.png";
-    } else {
-        return "https://i.ibb.co/rb4rrJL/26.png";
-    }
+
+export const getWindSpeedStatus = (windSpeed?: number) => {
+    if (!windSpeed) return "N/A"
+    if (windSpeed < 11.3) return "Light breeze"
+    if (windSpeed < 19.3) return "Gentle breeze"
+    if (windSpeed < 29) return "Moderate breeze"
+    if (windSpeed < 38.6) return "Fresh breeze"
+    if (windSpeed < 49.9) return "Strong breeze"
+    if (windSpeed < 61.5) return "Near gale"
+    if (windSpeed < 74.6) return "Gale"
+    if (windSpeed < 86.9) return "Strong gale"
+    if (windSpeed < 101.4) return "Storm"
+    if (windSpeed < 115.9) return "Violent storm"
+
+    return "Hurricane"
+
 }

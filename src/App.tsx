@@ -5,19 +5,25 @@ import weatherApis from './services/weatherApi'
 import { useCurrentLocation } from './contexts/CurrentLocationContext'
 import { useWeather } from './contexts/WeatherContext'
 import { useTheme } from './contexts/ThemeModeContext'
+import Loader from './components/Loader/Loader'
 
 function App() {
   const currentLocation = useCurrentLocation()
   const weather = useWeather()
   const themeMode = useTheme()
+  const [firstLoad, setFirstLoad] = useState<boolean>(true)
+  const [fetching, setFetching] = useState<boolean>(false)
 
   useEffect(() => {
+    setFetching(true)
     if (!currentLocation?.location) return
     weatherApis.getWeather(currentLocation.location)
       .then(res => weather?.saveWeather(res.data))
       .catch(err => console.log(err))
+      .finally(() => { setFetching(false); if (firstLoad) setFirstLoad(false) })
 
   }, [currentLocation?.location])
+
   return (
     <div className={`App ${themeMode.mode}`}>
       <div className='
@@ -28,6 +34,7 @@ function App() {
         <LeftSide />
         <MainContent />
       </div>
+      <Loader show={firstLoad && fetching} />
     </div>
   )
 }

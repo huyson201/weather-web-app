@@ -14,6 +14,9 @@ const weatherApis = {
                 q: city
             }
         })
+    },
+    getCurrentLocation: () => {
+        return axios.get<GeoLocation>("https://geolocation-db.com/json/")
     }
 }
 

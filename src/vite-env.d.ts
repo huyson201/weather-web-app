@@ -121,3 +121,13 @@ interface City {
     state: string
 }
 
+interface GeoLocation {
+    IPv4: string | null
+    city: string | null
+    country_code: string
+    country_name: string
+    latitude: number
+    longitude: number
+    postal: string | null
+    state: string | null
+}
