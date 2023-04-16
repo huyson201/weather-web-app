@@ -5,7 +5,7 @@ import { MdCo2 } from 'react-icons/md'
 import { TbUvIndex } from 'react-icons/tb'
 import { WiBarometer, WiHumidity, WiSunrise, WiSunset } from 'react-icons/wi'
 import { useWeather } from '../../contexts/WeatherContext'
-import { convert24TimesTo12Times, getHumidityStatus, getVisibilityStatus, getWindSpeedStatus, measureUvIndex } from '../../helpers/common'
+import { convert24TimesTo12Times, getHumidityStatus, getVisibilityStatus, getWindDirStatus, getWindSpeedStatus, measureUvIndex } from '../../helpers/common'
 import { FaLocationArrow } from 'react-icons/fa'
 export interface MyCustomCSS extends CSSProperties {
     '--i': string;
@@ -35,7 +35,14 @@ function TodayHightlight() {
                 <div className='text-sm dark:text-white-2'>{getWindSpeedStatus(currentWeather?.windspeed)}</div>
 
             </div>
-
+            <div className=' bg-white dark:bg-[#1D1C1F] shadow-md dark:shadow-white-2/10 p-4 rounded-lg'>
+                <div className='text-left text-[#c2c2c2] dark:text-[#7B7980] capitalize font-semibold'>Wind direction</div>
+                <div className='flex items-center justify-between gap-4 py-4 dark:text-white-2'>
+                    <div className={`text-2xl rotate-[var(--i)]`} style={{ "--i": currentWeather?.winddir + "deg" } as MyCustomCSS}><FaLocationArrow className='rotate-[135deg]' /></div>
+                    <div className=' my-2 text-3xl'>{currentWeather?.winddir || "N/A"}&deg;</div>
+                </div>
+                <div className='text-sm dark:text-white-2'>{getWindDirStatus(currentWeather?.winddir)}</div>
+            </div>
             <div className=' bg-white dark:bg-[#1D1C1F] shadow-md dark:shadow-white-2/10 p-4 rounded-lg'>
                 <div className='text-left text-[#c2c2c2] dark:text-[#7B7980] capitalize font-semibold'>Humidity</div>
                 <div className='flex items-center justify-between gap-4 py-4 dark:text-white-2'>
@@ -61,14 +68,7 @@ function TodayHightlight() {
                 </div>
             </div>
 
-            <div className=' bg-white dark:bg-[#1D1C1F] shadow-md dark:shadow-white-2/10 p-4 rounded-lg'>
-                <div className='text-left text-[#c2c2c2] dark:text-[#7B7980] capitalize font-semibold'>Wind direction</div>
-                <div className='flex items-center justify-between gap-4 py-4 dark:text-white-2'>
-                    <div className={`text-2xl rotate-[var(--i)]`} style={{ "--i": currentWeather?.winddir + "deg" } as MyCustomCSS}><FaLocationArrow className='rotate-[135deg]' /></div>
-                    <div className=' my-2 text-3xl'>{currentWeather?.winddir || "N/A"}&deg;</div>
-                </div>
 
-            </div>
             <div className=' bg-white dark:bg-[#1D1C1F] shadow-md dark:shadow-white-2/10 p-4 rounded-lg'>
                 <div className='text-left text-[#c2c2c2] dark:text-[#7B7980] capitalize font-semibold'>Sunrise</div>
                 <div className='flex items-center justify-between gap-4 py-4 dark:text-white-2'>

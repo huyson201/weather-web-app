@@ -107,8 +107,6 @@ export const convert24TimesTo12Times = (times?: string) => {
     }
 }
 
-
-
 export const getWindSpeedStatus = (windSpeed?: number) => {
     if (!windSpeed) return "N/A"
     if (windSpeed < 11.3) return "Light breeze"
@@ -124,4 +122,12 @@ export const getWindSpeedStatus = (windSpeed?: number) => {
 
     return "Hurricane"
 
+}
+
+export const getWindDirStatus = (deg?: number) => {
+    if (deg === undefined) return "N/A"
+    if (deg === 0 || (deg > 270 && deg <= 360)) return "From the North"
+    if (deg > 0 && deg <= 90) return "From the East"
+    if (deg > 90 && deg <= 180) return "From the South"
+    if (deg > 180 && deg <= 270) return "From the West"
 }
