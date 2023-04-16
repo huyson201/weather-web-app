@@ -15,8 +15,8 @@ OR
 ```zsh
 npm install
 ```
-Create .env file and add api key:
-Get Api key [here.](https://www.visualcrossing.com/weather-api)
+:point_right: Create .env file and add api key:\
+:point_right: Get Api key [here.](https://www.visualcrossing.com/weather-api)
 ```
 VITE_API_KEY=api_key
 ```

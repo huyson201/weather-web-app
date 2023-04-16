@@ -84,7 +84,7 @@ export default function LeftSide() {
                 <img className='w-[240px] md:w-[70%] inline-block' src={`/images/${weather?.weatherData?.currentConditions.icon || "cloudy"}.png`} alt='weather icons' />
             </div>
 
-            <div className='dark:text-white-2 mt-12 md:mt-20 px-4 flex justify-center md:justify-start'>
+            <div className='dark:text-white-2 mt-12 md:mt-14 px-4 flex justify-center md:justify-start'>
                 <h1 className='text-7xl font-normal'>{tempUnit === "Celsius" ? weather?.weatherData?.currentConditions.temp : (convertCelsiusToFahrenheit(weather?.weatherData?.currentConditions.temp) || "N/A")}</h1>
                 <span className='text-5xl mt-1'>{tempUnit === "Celsius" ? "°C" : "°F"}</span>
             </div>

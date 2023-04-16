@@ -6,6 +6,7 @@ import { useCurrentLocation } from './contexts/CurrentLocationContext'
 import { useWeather } from './contexts/WeatherContext'
 import { useTheme } from './contexts/ThemeModeContext'
 import Loader from './components/Loader/Loader'
+import ErrorPage from './components/ErrorPage/ErrorPage'
 
 function App() {
   const currentLocation = useCurrentLocation()
@@ -13,14 +14,18 @@ function App() {
   const themeMode = useTheme()
   const [firstLoad, setFirstLoad] = useState<boolean>(true)
   const [fetching, setFetching] = useState<boolean>(false)
+  const [error, setError] = useState<any>()
 
   useEffect(() => {
     setFetching(true)
-    console.log()
     const fetchLocation = async () => {
-      let location = (await weatherApis.getCurrentLocation()).data
-      let address = `${location.city ? location.city + "," : ""} ${location.country_name}`
-      currentLocation?.setLocation(address)
+      try {
+        let location = (await weatherApis.getCurrentLocation()).data
+        let address = `${location.city ? location.city + "," : ""} ${location.country_name}`
+        currentLocation?.setLocation(address)
+      } catch (error) {
+        currentLocation?.setLocation("viet nam")
+      }
     }
 
     fetchLocation()
@@ -33,10 +38,12 @@ function App() {
 
     weatherApis.getWeather(currentLocation.location)
       .then(res => weather?.saveWeather(res.data))
-      .catch(err => console.log(err))
+      .catch(err => setError(err))
       .finally(() => { setFetching(false); if (firstLoad) setFirstLoad(false) })
 
   }, [currentLocation?.location])
+
+  if (error) return <ErrorPage />
 
   return (
     <div className={`App ${themeMode.mode}`}>

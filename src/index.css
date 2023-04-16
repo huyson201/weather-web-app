@@ -11,6 +11,9 @@ body {
 
 }
 
+.App.dark .cloud{
+  filter: opacity(0.8);
+}
 .cloud-1{
   animation: flyingCloud 12s linear infinite;
 
