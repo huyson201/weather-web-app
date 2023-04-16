@@ -1,5 +1,5 @@
 # Getting started
-### :link:Clone repository:
+### Clone repository:
 ```zsh
 git clone https://github.com/huyson201/weather-web-app.git
 ```
@@ -7,7 +7,7 @@ git clone https://github.com/huyson201/weather-web-app.git
 ```zsh
 cd weather-web-app
 ```
-### :link: Install package
+### Install package
 ```zsh
 yarn install
 ```
@@ -20,7 +20,7 @@ npm install
 ```
 VITE_API_KEY=api_key
 ```
-### :link:start project:
+### start project:
 ```zsh
 yarn dev
 ```
