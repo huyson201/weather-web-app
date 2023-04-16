@@ -13,7 +13,7 @@ export default function WeatherCard({ data, type = "week" }: Props) {
     const tempUnit = useTempUnit().temp
 
     return (
-        <div className='p-3 flex w-[100px] dark:bg-[#1D1C1F] dark:text-white-2 bg-white rounded-md gap-2 justify-center flex-col items-center'>
+        <div className='p-3 flex w-[100px] shadow-md dark:shadow-white-2/10 dark:bg-[#1D1C1F] dark:text-white-2 bg-white rounded-md gap-2 justify-center flex-col items-center'>
             <div className=' text-sm font-semibold'>{type === "week" ? getDayOfWeek(data.datetime) : getTimes(data.datetime)}</div>
             <img className='w-full' src={`/images/${data.icon}.png`} alt='weather' />
             <div className='text-sm w-full flex justify-center mt-auto text-center'>

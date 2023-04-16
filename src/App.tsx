@@ -16,7 +16,21 @@ function App() {
 
   useEffect(() => {
     setFetching(true)
-    if (!currentLocation?.location) return
+    console.log()
+    const fetchLocation = async () => {
+      let location = (await weatherApis.getCurrentLocation()).data
+      let address = `${location.city ? location.city + "," : ""} ${location.country_name}`
+      currentLocation?.setLocation(address)
+    }
+
+    fetchLocation()
+  }, [])
+
+  useEffect(() => {
+    if (!currentLocation || currentLocation.location === "") {
+      return
+    }
+
     weatherApis.getWeather(currentLocation.location)
       .then(res => weather?.saveWeather(res.data))
       .catch(err => console.log(err))

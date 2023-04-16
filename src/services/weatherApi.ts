@@ -7,7 +7,7 @@ const weatherApis = {
         return axiosInstance.get<WeatherResponse>(city)
     },
     searchGeo: (city: string) => {
-        return axios.get("http://api.openweathermap.org/geo/1.0/direct", {
+        return axios.get("https://api.openweathermap.org/geo/1.0/direct", {
             params: {
                 appid: "d465afca4fb4a86c46196e0ac8e71882",
                 limit: 5,

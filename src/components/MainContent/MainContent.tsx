@@ -24,7 +24,7 @@ export default function MainContent() {
                         <button className={`hover:text-primary dark:hover:text-primary duration-200 transition-colors ${forecastType === "week" ? `text-primary` : `text-[#495057] dark:text-[#7B7980]`}`} onClick={() => setForecastType("week")}>Week</button>
                     </div>
 
-                    <div className='flex  gap-2'>
+                    <div className='flex outline-none  gap-2'>
                         <button className='flex h-9 w-[4.5rem] rounded-[50px] relative cursor-pointer items-center 
                                             active
                                             bg-gradient-to-br from-[#e1e1e1] to-[#fff]
@@ -53,7 +53,7 @@ export default function MainContent() {
             </div>
 
             {/* footer */}
-            <div className='text-center text-sm pb-6 pt-4 text-[#A09FB1] dark:text-[#7B7980] mt-4'>&copy;2023 Created by Son Nguyen &#10084; - No rights reserved</div>
+            <div className='text-center text-sm pb-6 pt-4 text-[#A09FB1] dark:text-[#7B7980] px-4 mt-4'>&copy;2023 Created by Son Nguyen &#10084; - No rights reserved</div>
 
         </div>
     )

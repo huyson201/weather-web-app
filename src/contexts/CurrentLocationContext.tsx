@@ -19,7 +19,7 @@ interface Props {
 
 export default function CurrentLocationProvider({ children }: Props) {
 
-    const [location, setLocation] = useState<string>("viet nam")
+    const [location, setLocation] = useState<string>("")
 
     return (
         <CurrentContext.Provider value={{ location, setLocation: (data) => setLocation(data) }}>

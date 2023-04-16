@@ -81,7 +81,7 @@ export default function LeftSide() {
             </div>
 
             <div className='w-full px-4 text-center mt-6 relative z-[1]'>
-                <img className='w-[240px] md:w-[70%] inline-block' src={`/images/${weather?.weatherData?.currentConditions.icon}.png`} alt='weather icons' />
+                <img className='w-[240px] md:w-[70%] inline-block' src={`/images/${weather?.weatherData?.currentConditions.icon || "cloud"}.png`} alt='weather icons' />
             </div>
 
             <div className='dark:text-white-2 mt-12 md:mt-20 px-4 flex justify-center md:justify-start'>
@@ -103,7 +103,7 @@ export default function LeftSide() {
             </div>
 
             {/* location */}
-            <div className='dark:text-white-2 mt-auto flex gap-2 px-4 items-center justify-center md:justify-start md:pb-4'>
+            <div className='dark:text-white-2 mt-auto flex mb-8 md:mb-0 gap-2 px-4 items-center justify-center md:justify-start md:pb-4'>
                 <FaMapMarkerAlt className='text-sm' />
                 <span className='text-sm'>{weather?.weatherData?.resolvedAddress || "N/A"}</span>
             </div>
